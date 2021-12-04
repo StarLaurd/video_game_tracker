@@ -11,6 +11,8 @@ class VideoGameResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :rating
+
   belongs_to :developer
 
   belongs_to :publisher

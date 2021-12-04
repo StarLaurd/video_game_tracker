@@ -9,6 +9,8 @@ class RatingResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :video_games
+
   belongs_to :user
 
   belongs_to :game,
