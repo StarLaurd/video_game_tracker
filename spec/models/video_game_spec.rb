@@ -4,6 +4,8 @@ RSpec.describe VideoGame, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:developer) }
+
     it { should belong_to(:publisher) }
 
     it { should have_many(:notes) }

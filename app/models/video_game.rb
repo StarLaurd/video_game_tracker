@@ -1,6 +1,8 @@
 class VideoGame < ApplicationRecord
   # Direct associations
 
+  belongs_to :developer
+
   belongs_to :publisher
 
   has_many   :notes,

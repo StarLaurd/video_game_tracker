@@ -4,6 +4,8 @@ RSpec.describe Developer, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:video_games) }
+
     end
 
     describe "InDirect Associations" do
