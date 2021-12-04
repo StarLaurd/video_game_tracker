@@ -17,7 +17,11 @@
 
       <dt>Rating</dt>
       <!-- Display rating_id start -->
-      <dd><%= video_game.rating_id %></dd>
+      <dd>
+        <% if @video_game.rating.present? %>
+          <%= link_to video_game.rating, video_game.rating %>
+        <% end %>
+      </dd>
       <!-- Display rating_id end -->
 
       <dt>Image</dt>
@@ -29,12 +33,20 @@
 
       <dt>Publisher</dt>
       <!-- Display publisher_id start -->
-      <dd><%= video_game.publisher_id %></dd>
+      <dd>
+        <% if @video_game.publisher.present? %>
+          <%= link_to video_game.publisher, video_game.publisher %>
+        <% end %>
+      </dd>
       <!-- Display publisher_id end -->
 
       <dt>Developer</dt>
       <!-- Display developer_id start -->
-      <dd><%= video_game.developer_id %></dd>
+      <dd>
+        <% if @video_game.developer.present? %>
+          <%= link_to video_game.developer, video_game.developer %>
+        <% end %>
+      </dd>
       <!-- Display developer_id end -->
 
     </dl>

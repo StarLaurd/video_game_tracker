@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Game</dt>
       <!-- Display game_id start -->
-      <dd><%= status.game_id %></dd>
+      <dd>
+        <% if @status.game.present? %>
+          <%= link_to status.game, status.game %>
+        <% end %>
+      </dd>
       <!-- Display game_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= status.user_id %></dd>
+      <dd>
+        <% if @status.user.present? %>
+          <%= link_to status.user, status.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Status</dt>
