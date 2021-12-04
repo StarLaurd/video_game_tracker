@@ -4,6 +4,8 @@ RSpec.describe VideoGame, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:statuses) }
+
     it { should have_many(:ratings) }
 
     end

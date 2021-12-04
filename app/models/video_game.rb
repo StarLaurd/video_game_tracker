@@ -1,6 +1,10 @@
 class VideoGame < ApplicationRecord
   # Direct associations
 
+  has_many   :statuses,
+             :foreign_key => "game_id",
+             :dependent => :destroy
+
   has_many   :ratings,
              :foreign_key => "game_id",
              :dependent => :destroy
