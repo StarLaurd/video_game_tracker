@@ -1,10 +1,10 @@
 class DevelopersController < ApplicationController
-  before_action :set_developer, only: [:show, :edit, :update, :destroy]
+  before_action :set_developer, only: %i[show edit update destroy]
 
   # GET /developers
   def index
     @q = Developer.ransack(params[:q])
-    @developers = @q.result(:distinct => true).includes(:video_games).page(params[:page]).per(10)
+    @developers = @q.result(distinct: true).includes(:video_games).page(params[:page]).per(10)
   end
 
   # GET /developers/1
@@ -18,15 +18,14 @@ class DevelopersController < ApplicationController
   end
 
   # GET /developers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /developers
   def create
     @developer = Developer.new(developer_params)
 
     if @developer.save
-      redirect_to @developer, notice: 'Developer was successfully created.'
+      redirect_to @developer, notice: "Developer was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class DevelopersController < ApplicationController
   # PATCH/PUT /developers/1
   def update
     if @developer.update(developer_params)
-      redirect_to @developer, notice: 'Developer was successfully updated.'
+      redirect_to @developer, notice: "Developer was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,18 @@ class DevelopersController < ApplicationController
   # DELETE /developers/1
   def destroy
     @developer.destroy
-    redirect_to developers_url, notice: 'Developer was successfully destroyed.'
+    redirect_to developers_url, notice: "Developer was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_developer
-      @developer = Developer.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def developer_params
-      params.require(:developer).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_developer
+    @developer = Developer.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def developer_params
+    params.require(:developer).permit(:name)
+  end
 end

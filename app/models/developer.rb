@@ -2,7 +2,7 @@ class Developer < ApplicationRecord
   # Direct associations
 
   has_many   :video_games,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Developer < ApplicationRecord
   def to_s
     name
   end
-
 end

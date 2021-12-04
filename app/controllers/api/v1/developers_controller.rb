@@ -13,7 +13,7 @@ class Api::V1::DevelopersController < Api::V1::GraphitiController
     developer = DeveloperResource.build(params)
 
     if developer.save
-      render jsonapi: developer, status: 201
+      render jsonapi: developer, status: :created
     else
       render jsonapi_errors: developer
     end
@@ -33,7 +33,7 @@ class Api::V1::DevelopersController < Api::V1::GraphitiController
     developer = DeveloperResource.find(params)
 
     if developer.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: developer
     end

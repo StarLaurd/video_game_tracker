@@ -1,6 +1,6 @@
 ActiveAdmin.register VideoGame do
-
- permit_params :name, :release_date, :rating_id, :image, :publisher_id, :developer_id
+  permit_params :name, :release_date, :rating_id, :image, :publisher_id,
+                :developer_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register VideoGame do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

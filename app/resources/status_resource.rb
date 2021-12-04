@@ -14,5 +14,4 @@ class StatusResource < ApplicationResource
              resource: VideoGameResource
 
   # Indirect associations
-
 end

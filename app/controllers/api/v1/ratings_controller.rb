@@ -13,7 +13,7 @@ class Api::V1::RatingsController < Api::V1::GraphitiController
     rating = RatingResource.build(params)
 
     if rating.save
-      render jsonapi: rating, status: 201
+      render jsonapi: rating, status: :created
     else
       render jsonapi_errors: rating
     end
@@ -33,7 +33,7 @@ class Api::V1::RatingsController < Api::V1::GraphitiController
     rating = RatingResource.find(params)
 
     if rating.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: rating
     end

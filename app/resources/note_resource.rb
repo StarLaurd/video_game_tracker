@@ -13,5 +13,4 @@ class NoteResource < ApplicationResource
              resource: VideoGameResource
 
   # Indirect associations
-
 end

@@ -1,10 +1,10 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: [:show, :edit, :update, :destroy]
+  before_action :set_publisher, only: %i[show edit update destroy]
 
   # GET /publishers
   def index
     @q = Publisher.ransack(params[:q])
-    @publishers = @q.result(:distinct => true).includes(:video_games).page(params[:page]).per(10)
+    @publishers = @q.result(distinct: true).includes(:video_games).page(params[:page]).per(10)
   end
 
   # GET /publishers/1
@@ -18,15 +18,14 @@ class PublishersController < ApplicationController
   end
 
   # GET /publishers/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /publishers
   def create
     @publisher = Publisher.new(publisher_params)
 
     if @publisher.save
-      redirect_to @publisher, notice: 'Publisher was successfully created.'
+      redirect_to @publisher, notice: "Publisher was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class PublishersController < ApplicationController
   # PATCH/PUT /publishers/1
   def update
     if @publisher.update(publisher_params)
-      redirect_to @publisher, notice: 'Publisher was successfully updated.'
+      redirect_to @publisher, notice: "Publisher was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,18 @@ class PublishersController < ApplicationController
   # DELETE /publishers/1
   def destroy
     @publisher.destroy
-    redirect_to publishers_url, notice: 'Publisher was successfully destroyed.'
+    redirect_to publishers_url, notice: "Publisher was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_publisher
-      @publisher = Publisher.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def publisher_params
-      params.require(:publisher).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_publisher
+    @publisher = Publisher.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def publisher_params
+    params.require(:publisher).permit(:name)
+  end
 end

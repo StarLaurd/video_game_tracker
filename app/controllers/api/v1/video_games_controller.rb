@@ -13,7 +13,7 @@ class Api::V1::VideoGamesController < Api::V1::GraphitiController
     video_game = VideoGameResource.build(params)
 
     if video_game.save
-      render jsonapi: video_game, status: 201
+      render jsonapi: video_game, status: :created
     else
       render jsonapi_errors: video_game
     end
@@ -33,7 +33,7 @@ class Api::V1::VideoGamesController < Api::V1::GraphitiController
     video_game = VideoGameResource.find(params)
 
     if video_game.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: video_game
     end

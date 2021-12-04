@@ -27,5 +27,4 @@ class VideoGameResource < ApplicationResource
              foreign_key: :game_id
 
   # Indirect associations
-
 end

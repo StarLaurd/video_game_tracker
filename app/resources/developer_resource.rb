@@ -6,8 +6,7 @@ class DeveloperResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :video_games
+  has_many :video_games
 
   # Indirect associations
-
 end

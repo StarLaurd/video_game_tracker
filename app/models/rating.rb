@@ -2,12 +2,12 @@ class Rating < ApplicationRecord
   # Direct associations
 
   has_many   :video_games,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :user
 
   belongs_to :game,
-             :class_name => "VideoGame"
+             class_name: "VideoGame"
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class Rating < ApplicationRecord
   def to_s
     game.to_s
   end
-
 end

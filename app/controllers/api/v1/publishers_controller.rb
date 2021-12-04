@@ -13,7 +13,7 @@ class Api::V1::PublishersController < Api::V1::GraphitiController
     publisher = PublisherResource.build(params)
 
     if publisher.save
-      render jsonapi: publisher, status: 201
+      render jsonapi: publisher, status: :created
     else
       render jsonapi_errors: publisher
     end
@@ -33,7 +33,7 @@ class Api::V1::PublishersController < Api::V1::GraphitiController
     publisher = PublisherResource.find(params)
 
     if publisher.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: publisher
     end

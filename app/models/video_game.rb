@@ -10,16 +10,16 @@ class VideoGame < ApplicationRecord
   belongs_to :publisher
 
   has_many   :notes,
-             :foreign_key => "game_id",
-             :dependent => :destroy
+             foreign_key: "game_id",
+             dependent: :destroy
 
   has_many   :statuses,
-             :foreign_key => "game_id",
-             :dependent => :destroy
+             foreign_key: "game_id",
+             dependent: :destroy
 
   has_many   :ratings,
-             :foreign_key => "game_id",
-             :dependent => :destroy
+             foreign_key: "game_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -30,5 +30,4 @@ class VideoGame < ApplicationRecord
   def to_s
     name
   end
-
 end

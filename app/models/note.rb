@@ -4,7 +4,7 @@ class Note < ApplicationRecord
   belongs_to :user
 
   belongs_to :game,
-             :class_name => "VideoGame"
+             class_name: "VideoGame"
 
   # Indirect associations
 
@@ -15,5 +15,4 @@ class Note < ApplicationRecord
   def to_s
     user.to_s
   end
-
 end

@@ -17,5 +17,4 @@ class RatingResource < ApplicationResource
              resource: VideoGameResource
 
   # Indirect associations
-
 end
