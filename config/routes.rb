@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "video_games#index"
   resources :notes
   resources :statuses
   resources :ratings
