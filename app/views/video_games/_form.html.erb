@@ -146,7 +146,7 @@
 
     <%= f.label :developer_id %>
     <!-- Input for developer_id start -->
-    <%= f.number_field :developer_id, class: developer_class, placeholder: "Enter developer" %>
+    <%= f.collection_select :developer_id, Developer.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for developer_id end -->
     <% if developer_was_invalid %>
       <% video_game.errors.full_messages_for(:developer).each do |message| %>
