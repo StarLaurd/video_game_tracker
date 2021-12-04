@@ -11,6 +11,8 @@ class VideoGameResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :publisher
+
   has_many   :notes,
              foreign_key: :game_id
 
