@@ -1,28 +1,14 @@
-<!-- Form status start -->
 <%= form_with(model: @status, local: true) do |f| %>
-<!-- Form status end -->
 
-  <!-- Label and input for game_id start -->
-  <!-- Input for game_id start -->
   <%= f.hidden_field :game_id, value: @video_game.id %>
-  <!-- Input for game_id end -->
-  <!-- Label and input for game_id end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for status start -->
   <div class="form-group">
     <%= f.label :status %>
 
-    <!-- Input for status start -->
     <%= f.select :status, options_for_select(Status.statuses.keys), {}, class: "form-control" %>
-    <!-- Input for status end -->
   </div>
-  <!-- Label and input for status end -->
 
   <%= f.submit "Create status", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

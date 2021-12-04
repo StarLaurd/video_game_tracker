@@ -1,22 +1,12 @@
-<!-- Form note start -->
 <%= form_with(model: @note, local: true) do |f| %>
-<!-- Form note end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for game_id start -->
   <div class="form-group">
     <%= f.label :game_id %>
 
-    <!-- Input for game_id start -->
     <%= f.collection_select :game_id, VideoGame.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for game_id end -->
   </div>
-  <!-- Label and input for game_id end -->
 
   <%= f.submit "Create note", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

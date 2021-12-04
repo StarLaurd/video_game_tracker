@@ -1,7 +1,6 @@
 <% was_validated = status.errors.any? %>
 
 <%= form_with(model: status, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for game_id start -->
   <div class="form-group">
     <% game_class = "form-control" %>
     <% game_was_invalid = status.errors.include?(:game) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :game_id %>
-    <!-- Input for game_id start -->
     <%= f.collection_select :game_id, VideoGame.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for game_id end -->
     <% if game_was_invalid %>
       <% status.errors.full_messages_for(:game).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,13 +23,7 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for game_id end -->
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for status start -->
   <div class="form-group">
     <% status_class = "form-control" %>
     <% status_was_invalid = status.errors.include?(:status) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :status %>
-    <!-- Input for status start -->
     <%= f.select :status, options_for_select(Status.statuses.keys), {}, class: "form-control" %>
-    <!-- Input for status end -->
     <% if status_was_invalid %>
       <% status.errors.full_messages_for(:status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,6 +46,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for status end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

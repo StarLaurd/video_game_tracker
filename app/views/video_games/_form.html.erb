@@ -1,7 +1,6 @@
 <% was_validated = video_game.errors.any? %>
 
 <%= form_with(model: video_game, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = video_game.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% video_game.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for release_date start -->
   <div class="form-group">
     <% release_date_class = "form-control" %>
     <% release_date_was_invalid = video_game.errors.include?(:release_date) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :release_date %>
-    <!-- Input for release_date start -->
     <%= f.date_select :release_date, class: release_date_class, placeholder: "Enter release date" %>
-    <!-- Input for release_date end -->
     <% if release_date_was_invalid %>
       <% video_game.errors.full_messages_for(:release_date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for release_date end -->
-  <!-- Label and input for rating_id start -->
   <div class="form-group">
     <% rating_class = "form-control" %>
     <% rating_was_invalid = video_game.errors.include?(:rating) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :rating_id %>
-    <!-- Input for rating_id start -->
     <%= f.collection_select :rating_id, Rating.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for rating_id end -->
     <% if rating_was_invalid %>
       <% video_game.errors.full_messages_for(:rating).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for rating_id end -->
-  <!-- Label and input for image start -->
   <div class="form-group">
     <% image_class = "form-control" %>
     <% image_was_invalid = video_game.errors.include?(:image) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :image %>
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
     <% if image_was_invalid %>
       <% video_game.errors.full_messages_for(:image).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for image end -->
-  <!-- Label and input for publisher_id start -->
   <div class="form-group">
     <% publisher_class = "form-control" %>
     <% publisher_was_invalid = video_game.errors.include?(:publisher) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :publisher_id %>
-    <!-- Input for publisher_id start -->
     <%= f.collection_select :publisher_id, Publisher.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for publisher_id end -->
     <% if publisher_was_invalid %>
       <% video_game.errors.full_messages_for(:publisher).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for publisher_id end -->
-  <!-- Label and input for developer_id start -->
   <div class="form-group">
     <% developer_class = "form-control" %>
     <% developer_was_invalid = video_game.errors.include?(:developer) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :developer_id %>
-    <!-- Input for developer_id start -->
     <%= f.collection_select :developer_id, Developer.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for developer_id end -->
     <% if developer_was_invalid %>
       <% video_game.errors.full_messages_for(:developer).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for developer_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

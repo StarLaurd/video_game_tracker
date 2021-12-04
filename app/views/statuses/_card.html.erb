@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Game</dt>
-      <!-- Display game_id start -->
       <dd>
         <% if @status.game.present? %>
           <%= link_to status.game, status.game %>
         <% end %>
       </dd>
-      <!-- Display game_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @status.user.present? %>
           <%= link_to status.user, status.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Status</dt>
-      <!-- Display status start -->
       <dd><%= status.status %></dd>
-      <!-- Display status end -->
 
     </dl>
 
@@ -35,7 +29,6 @@
         <%= link_to_show_or_back status, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link status start -->
       <div class="col">
         <% if current_user == @status.user %>
           <%= link_to edit_status_url(status), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -43,9 +36,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link status end -->
 
-      <!-- Delete link status start -->
       <div class="col">
         <% if current_user == @status.user %>
           <%= link_to status, method: :delete, data: { confirm: "Do you really want to delete this status?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -53,7 +44,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link status end -->
     </div>
   </div>
 

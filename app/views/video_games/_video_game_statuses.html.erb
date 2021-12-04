@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @video_game.statuses.each do |status| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to status, status %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == status.user %>
           <%= link_to status, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="video_game_statuses_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "video_games/video_game_statuses_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

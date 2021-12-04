@@ -6,48 +6,36 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= video_game.name %></dd>
-      <!-- Display name end -->
 
       <dt>Release date</dt>
-      <!-- Display release_date start -->
       <dd><%= video_game.release_date %></dd>
-      <!-- Display release_date end -->
 
       <dt>Rating</dt>
-      <!-- Display rating_id start -->
       <dd>
         <% if @video_game.rating.present? %>
           <%= link_to video_game.rating, video_game.rating %>
         <% end %>
       </dd>
-      <!-- Display rating_id end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @video_game.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
       <dt>Publisher</dt>
-      <!-- Display publisher_id start -->
       <dd>
         <% if @video_game.publisher.present? %>
           <%= link_to video_game.publisher, video_game.publisher %>
         <% end %>
       </dd>
-      <!-- Display publisher_id end -->
 
       <dt>Developer</dt>
-      <!-- Display developer_id start -->
       <dd>
         <% if @video_game.developer.present? %>
           <%= link_to video_game.developer, video_game.developer %>
         <% end %>
       </dd>
-      <!-- Display developer_id end -->
 
     </dl>
 
@@ -56,21 +44,17 @@
         <%= link_to_show_or_back video_game, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link video_game start -->
       <div class="col">
         <%= link_to edit_video_game_url(video_game), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link video_game end -->
 
-      <!-- Delete link video_game start -->
       <div class="col">
         <%= link_to video_game, method: :delete, data: { confirm: "Do you really want to delete this video_game?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link video_game end -->
     </div>
   </div>
 
