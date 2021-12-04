@@ -27,7 +27,7 @@
     <%= f.label :rating_id %>
 
     <!-- Input for rating_id start -->
-    <%= f.text_field :rating_id, class: "form-control" %>
+    <%= f.collection_select :rating_id, Rating.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for rating_id end -->
   </div>
   <!-- Label and input for rating_id end -->
