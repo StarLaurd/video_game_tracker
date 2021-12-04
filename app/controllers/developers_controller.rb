@@ -1,26 +1,21 @@
 class DevelopersController < ApplicationController
   before_action :set_developer, only: %i[show edit update destroy]
 
-  # GET /developers
   def index
     @q = Developer.ransack(params[:q])
     @developers = @q.result(distinct: true).includes(:video_games).page(params[:page]).per(10)
   end
 
-  # GET /developers/1
   def show
     @video_game = VideoGame.new
   end
 
-  # GET /developers/new
   def new
     @developer = Developer.new
   end
 
-  # GET /developers/1/edit
   def edit; end
 
-  # POST /developers
   def create
     @developer = Developer.new(developer_params)
 
@@ -31,7 +26,6 @@ class DevelopersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /developers/1
   def update
     if @developer.update(developer_params)
       redirect_to @developer, notice: "Developer was successfully updated."
@@ -40,7 +34,6 @@ class DevelopersController < ApplicationController
     end
   end
 
-  # DELETE /developers/1
   def destroy
     @developer.destroy
     redirect_to developers_url, notice: "Developer was successfully destroyed."
@@ -48,12 +41,10 @@ class DevelopersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_developer
     @developer = Developer.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def developer_params
     params.require(:developer).permit(:name)
   end

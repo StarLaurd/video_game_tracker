@@ -1,25 +1,20 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[show edit update destroy]
 
-  # GET /notes
   def index
     @q = Note.ransack(params[:q])
     @notes = @q.result(distinct: true).includes(:game,
                                                 :user).page(params[:page]).per(10)
   end
 
-  # GET /notes/1
   def show; end
 
-  # GET /notes/new
   def new
     @note = Note.new
   end
 
-  # GET /notes/1/edit
   def edit; end
 
-  # POST /notes
   def create
     @note = Note.new(note_params)
 
@@ -35,7 +30,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /notes/1
   def update
     if @note.update(note_params)
       redirect_to @note, notice: "Note was successfully updated."
@@ -44,7 +38,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # DELETE /notes/1
   def destroy
     @note.destroy
     message = "Note was successfully deleted."
@@ -57,12 +50,10 @@ class NotesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_note
     @note = Note.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def note_params
     params.require(:note).permit(:user_id, :game_id)
   end
