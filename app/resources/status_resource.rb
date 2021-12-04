@@ -8,6 +8,8 @@ class StatusResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :game,
              resource: VideoGameResource
 
