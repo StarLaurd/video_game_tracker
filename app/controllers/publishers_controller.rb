@@ -3,7 +3,7 @@ class PublishersController < ApplicationController
 
   # GET /publishers
   def index
-    @publishers = Publisher.all
+    @publishers = Publisher.page(params[:page]).per(10)
   end
 
   # GET /publishers/1

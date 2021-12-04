@@ -3,7 +3,7 @@ class VideoGamesController < ApplicationController
 
   # GET /video_games
   def index
-    @video_games = VideoGame.all
+    @video_games = VideoGame.page(params[:page]).per(10)
   end
 
   # GET /video_games/1

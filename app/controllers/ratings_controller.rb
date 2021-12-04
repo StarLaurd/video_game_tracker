@@ -3,7 +3,7 @@ class RatingsController < ApplicationController
 
   # GET /ratings
   def index
-    @ratings = Rating.all
+    @ratings = Rating.page(params[:page]).per(10)
   end
 
   # GET /ratings/1
