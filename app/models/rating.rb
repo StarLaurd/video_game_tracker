@@ -1,6 +1,9 @@
 class Rating < ApplicationRecord
   # Direct associations
 
+  has_many   :video_games,
+             :dependent => :destroy
+
   belongs_to :user
 
   belongs_to :game,
