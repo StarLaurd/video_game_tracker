@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to status, method: :delete, data: { confirm: "Do you really want to delete this status" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == status.user %>
+          <%= link_to status, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
