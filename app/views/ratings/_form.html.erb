@@ -16,7 +16,7 @@
 
     <%= f.label :game_id %>
     <!-- Input for game_id start -->
-    <%= f.number_field :game_id, class: game_class, placeholder: "Enter game" %>
+    <%= f.collection_select :game_id, VideoGame.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for game_id end -->
     <% if game_was_invalid %>
       <% rating.errors.full_messages_for(:game).each do |message| %>
