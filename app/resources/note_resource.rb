@@ -7,6 +7,9 @@ class NoteResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :game,
+             resource: VideoGameResource
+
   # Indirect associations
 
 end
