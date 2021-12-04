@@ -11,6 +11,9 @@ class VideoGameResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :ratings,
+             foreign_key: :game_id
+
   # Indirect associations
 
 end
