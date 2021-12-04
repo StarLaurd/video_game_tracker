@@ -3,7 +3,8 @@ class DevelopersController < ApplicationController
 
   # GET /developers
   def index
-    @developers = Developer.page(params[:page]).per(10)
+    @q = Developer.ransack(params[:q])
+    @developers = @q.result(:distinct => true).includes(:video_games).page(params[:page]).per(10)
   end
 
   # GET /developers/1

@@ -3,7 +3,8 @@ class RatingsController < ApplicationController
 
   # GET /ratings
   def index
-    @ratings = Rating.page(params[:page]).per(10)
+    @q = Rating.ransack(params[:q])
+    @ratings = @q.result(:distinct => true).includes(:game, :user, :video_games).page(params[:page]).per(10)
   end
 
   # GET /ratings/1

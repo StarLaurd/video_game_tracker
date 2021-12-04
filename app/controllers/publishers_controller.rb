@@ -3,7 +3,8 @@ class PublishersController < ApplicationController
 
   # GET /publishers
   def index
-    @publishers = Publisher.page(params[:page]).per(10)
+    @q = Publisher.ransack(params[:q])
+    @publishers = @q.result(:distinct => true).includes(:video_games).page(params[:page]).per(10)
   end
 
   # GET /publishers/1

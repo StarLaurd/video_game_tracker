@@ -3,7 +3,8 @@ class VideoGamesController < ApplicationController
 
   # GET /video_games
   def index
-    @video_games = VideoGame.page(params[:page]).per(10)
+    @q = VideoGame.ransack(params[:q])
+    @video_games = @q.result(:distinct => true).includes(:ratings, :statuses, :notes, :publisher, :developer, :rating).page(params[:page]).per(10)
   end
 
   # GET /video_games/1
