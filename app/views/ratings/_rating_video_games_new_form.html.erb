@@ -1,0 +1,62 @@
+<!-- Form video_game start -->
+<%= form_with(model: @video_game, local: true) do |f| %>
+<!-- Form video_game end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for release_date start -->
+  <div class="form-group">
+    <%= f.label :release_date %>
+
+    <!-- Input for release_date start -->
+    <%= f.date_select :release_date, class: "form-control" %>
+    <!-- Input for release_date end -->
+  </div>
+  <!-- Label and input for release_date end -->
+
+  <!-- Label and input for rating_id start -->
+  <!-- Input for rating_id start -->
+  <%= f.hidden_field :rating_id, value: @rating.id %>
+  <!-- Input for rating_id end -->
+  <!-- Label and input for rating_id end -->
+
+  <!-- Label and input for image start -->
+  <div class="form-group">
+    <%= f.label :image %>
+
+    <!-- Input for image start -->
+    <%= f.text_field :image, class: "form-control" %>
+    <!-- Input for image end -->
+  </div>
+  <!-- Label and input for image end -->
+
+  <!-- Label and input for publisher_id start -->
+  <div class="form-group">
+    <%= f.label :publisher_id %>
+
+    <!-- Input for publisher_id start -->
+    <%= f.text_field :publisher_id, class: "form-control" %>
+    <!-- Input for publisher_id end -->
+  </div>
+  <!-- Label and input for publisher_id end -->
+
+  <!-- Label and input for developer_id start -->
+  <div class="form-group">
+    <%= f.label :developer_id %>
+
+    <!-- Input for developer_id start -->
+    <%= f.text_field :developer_id, class: "form-control" %>
+    <!-- Input for developer_id end -->
+  </div>
+  <!-- Label and input for developer_id end -->
+
+  <%= f.submit "Create video game", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

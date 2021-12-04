@@ -1,0 +1,41 @@
+<!-- Form rating start -->
+<%= form_with(model: @rating, local: true) do |f| %>
+<!-- Form rating end -->
+
+  <!-- Label and input for game_id start -->
+  <div class="form-group">
+    <%= f.label :game_id %>
+
+    <!-- Input for game_id start -->
+    <%= f.text_field :game_id, class: "form-control" %>
+    <!-- Input for game_id end -->
+  </div>
+  <!-- Label and input for game_id end -->
+
+  <!-- Label and input for user_id start -->
+  <!-- Input for user_id start -->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <!-- Input for user_id end -->
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <%= f.label :rating %>
+
+    <!-- Input for rating start -->
+    <%= f.text_field :rating, class: "form-control" %>
+    <!-- Input for rating end -->
+  </div>
+  <!-- Label and input for rating end -->
+
+  <!-- Label and input for review start -->
+  <div class="form-group">
+    <%= f.label :review %>
+    <!-- Input for review start -->
+    <%= f.text_area :review, rows: "3", class: "form-control" %>
+    <!-- Input for review end -->
+  </div>
+  <!-- Label and input for review end -->
+
+  <%= f.submit "Create rating", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

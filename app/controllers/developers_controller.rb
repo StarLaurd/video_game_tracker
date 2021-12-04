@@ -8,6 +8,7 @@ class DevelopersController < ApplicationController
 
   # GET /developers/1
   def show
+    @video_game = VideoGame.new
   end
 
   # GET /developers/new

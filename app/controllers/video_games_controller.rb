@@ -8,6 +8,9 @@ class VideoGamesController < ApplicationController
 
   # GET /video_games/1
   def show
+    @note = Note.new
+    @status = Status.new
+    @rating = Rating.new
   end
 
   # GET /video_games/new
@@ -24,7 +27,12 @@ class VideoGamesController < ApplicationController
     @video_game = VideoGame.new(video_game_params)
 
     if @video_game.save
-      redirect_to @video_game, notice: 'Video game was successfully created.'
+      message = 'VideoGame was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @video_game, notice: message
+      end
     else
       render :new
     end

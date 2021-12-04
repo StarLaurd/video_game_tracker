@@ -8,6 +8,7 @@ class PublishersController < ApplicationController
 
   # GET /publishers/1
   def show
+    @video_game = VideoGame.new
   end
 
   # GET /publishers/new

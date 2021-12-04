@@ -1,0 +1,32 @@
+<!-- Form status start -->
+<%= form_with(model: @status, local: true) do |f| %>
+<!-- Form status end -->
+
+  <!-- Label and input for game_id start -->
+  <!-- Input for game_id start -->
+  <%= f.hidden_field :game_id, value: @video_game.id %>
+  <!-- Input for game_id end -->
+  <!-- Label and input for game_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <!-- Input for user_id start -->
+    <%= f.text_field :user_id, class: "form-control" %>
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for status start -->
+  <div class="form-group">
+    <%= f.label :status %>
+
+    <!-- Input for status start -->
+    <%= f.text_field :status, class: "form-control" %>
+    <!-- Input for status end -->
+  </div>
+  <!-- Label and input for status end -->
+
+  <%= f.submit "Create status", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

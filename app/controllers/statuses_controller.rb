@@ -24,7 +24,12 @@ class StatusesController < ApplicationController
     @status = Status.new(status_params)
 
     if @status.save
-      redirect_to @status, notice: 'Status was successfully created.'
+      message = 'Status was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @status, notice: message
+      end
     else
       render :new
     end
