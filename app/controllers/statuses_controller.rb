@@ -42,8 +42,14 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   def destroy
     @status.destroy
-    redirect_to statuses_url, notice: 'Status was successfully destroyed.'
+    message = "Status was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to statuses_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

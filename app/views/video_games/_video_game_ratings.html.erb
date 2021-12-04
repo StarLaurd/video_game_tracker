@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Ratings
+
+    <a data-toggle="collapse" href="#video_game_ratings_new_form">
+      Add rating
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @video_game.ratings.each do |rating| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to rating, rating %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to rating, method: :delete, data: { confirm: "Do you really want to delete this rating" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="video_game_ratings_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

@@ -42,8 +42,14 @@ class RatingsController < ApplicationController
   # DELETE /ratings/1
   def destroy
     @rating.destroy
-    redirect_to ratings_url, notice: 'Rating was successfully destroyed.'
+    message = "Rating was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to ratings_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
