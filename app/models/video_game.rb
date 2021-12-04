@@ -1,6 +1,8 @@
 class VideoGame < ApplicationRecord
   # Direct associations
 
+  belongs_to :publisher
+
   has_many   :notes,
              :foreign_key => "game_id",
              :dependent => :destroy

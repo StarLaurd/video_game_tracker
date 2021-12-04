@@ -1,6 +1,9 @@
 class Publisher < ApplicationRecord
   # Direct associations
 
+  has_many   :video_games,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
