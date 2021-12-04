@@ -68,7 +68,7 @@
 
     <%= f.label :status %>
     <!-- Input for status start -->
-    <%= f.number_field :status, class: status_class, placeholder: "Enter status" %>
+    <%= f.select :status, options_for_select(Status.statuses.keys), {}, class: "form-control" %>
     <!-- Input for status end -->
     <% if status_was_invalid %>
       <% status.errors.full_messages_for(:status).each do |message| %>
