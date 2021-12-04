@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Video Game #<%= video_game.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= video_game.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Release date</dt>
+      <!-- Display release_date start -->
+      <dd><%= video_game.release_date %></dd>
+      <!-- Display release_date end -->
+
+      <dt>Rating</dt>
+      <!-- Display rating_id start -->
+      <dd><%= video_game.rating_id %></dd>
+      <!-- Display rating_id end -->
+
+      <dt>Image</dt>
+      <!-- Display image start -->
+      <dd><%= video_game.image %></dd>
+      <!-- Display image end -->
+
+      <dt>Publisher</dt>
+      <!-- Display publisher_id start -->
+      <dd><%= video_game.publisher_id %></dd>
+      <!-- Display publisher_id end -->
+
+      <dt>Developer</dt>
+      <!-- Display developer_id start -->
+      <dd><%= video_game.developer_id %></dd>
+      <!-- Display developer_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back video_game, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link video_game start -->
+      <div class="col">
+        <%= link_to edit_video_game_url(video_game), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link video_game end -->
+
+      <!-- Delete link video_game start -->
+      <div class="col">
+        <%= link_to video_game, method: :delete, data: { confirm: "Do you really want to delete this video_game?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link video_game end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(video_game.updated_at) %> ago
+  </div>
+</div>
