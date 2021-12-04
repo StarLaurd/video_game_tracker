@@ -120,7 +120,7 @@
 
     <%= f.label :publisher_id %>
     <!-- Input for publisher_id start -->
-    <%= f.number_field :publisher_id, class: publisher_class, placeholder: "Enter publisher" %>
+    <%= f.collection_select :publisher_id, Publisher.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for publisher_id end -->
     <% if publisher_was_invalid %>
       <% video_game.errors.full_messages_for(:publisher).each do |message| %>
