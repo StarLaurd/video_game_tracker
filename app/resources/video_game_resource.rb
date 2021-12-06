@@ -4,14 +4,12 @@ class VideoGameResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :name, :string
   attribute :release_date, :date
-  attribute :rating_id, :integer
   attribute :image, :string
   attribute :publisher_id, :integer
   attribute :developer_id, :integer
+  attribute :platform_id, :integer
 
   # Direct associations
-
-  belongs_to :rating
 
   belongs_to :developer
 

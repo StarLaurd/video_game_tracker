@@ -11,13 +11,6 @@
       <dt>Release date</dt>
       <dd><%= video_game.release_date %></dd>
 
-      <dt>Rating</dt>
-      <dd>
-        <% if @video_game.rating.present? %>
-          <%= link_to video_game.rating, video_game.rating %>
-        <% end %>
-      </dd>
-
       <dt>Image</dt>
       <dd>
         <%= cl_image_tag @video_game.image, class: "img-fluid" %>
@@ -36,6 +29,9 @@
           <%= link_to video_game.developer, video_game.developer %>
         <% end %>
       </dd>
+
+      <dt>Platform</dt>
+      <dd><%= video_game.platform_id %></dd>
 
     </dl>
 

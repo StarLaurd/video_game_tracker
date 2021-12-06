@@ -2,8 +2,6 @@ require "rails_helper"
 
 RSpec.describe VideoGame, type: :model do
   describe "Direct Associations" do
-    it { should belong_to(:rating) }
-
     it { should belong_to(:developer) }
 
     it { should belong_to(:publisher) }

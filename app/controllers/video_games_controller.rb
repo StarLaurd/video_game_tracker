@@ -4,7 +4,7 @@ class VideoGamesController < ApplicationController
   def index
     @q = VideoGame.ransack(params[:q])
     @video_games = @q.result(distinct: true).includes(:ratings, :statuses,
-                                                      :notes, :publisher, :developer, :rating).page(params[:page]).per(10)
+                                                      :notes, :publisher, :developer).page(params[:page]).per(10)
   end
 
   def show
@@ -59,7 +59,7 @@ class VideoGamesController < ApplicationController
   end
 
   def video_game_params
-    params.require(:video_game).permit(:name, :release_date, :rating_id,
-                                       :image, :publisher_id, :developer_id)
+    params.require(:video_game).permit(:name, :release_date, :image,
+                                       :publisher_id, :developer_id, :platform_id)
   end
 end

@@ -1,5 +1,5 @@
-ActiveAdmin.register Rating do
-  permit_params :game_id, :user_id, :rating, :review, :platform_id
+ActiveAdmin.register Platform do
+  permit_params :name
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

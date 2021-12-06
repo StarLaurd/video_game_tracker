@@ -1,12 +1,8 @@
 require "rails_helper"
 
-RSpec.describe Rating, type: :model do
+RSpec.describe Platform, type: :model do
   describe "Direct Associations" do
-    it { should belong_to(:platform) }
-
-    it { should belong_to(:user) }
-
-    it { should belong_to(:game) }
+    it { should have_many(:ratings) }
   end
 
   describe "InDirect Associations" do

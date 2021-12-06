@@ -25,6 +25,13 @@
       <dt>Review</dt>
       <dd><%= rating.review %></dd>
 
+      <dt>Platform</dt>
+      <dd>
+        <% if @rating.platform.present? %>
+          <%= link_to rating.platform, rating.platform %>
+        <% end %>
+      </dd>
+
     </dl>
 
     <div class="row">

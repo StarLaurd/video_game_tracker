@@ -4,12 +4,10 @@ class RatingsController < ApplicationController
   def index
     @q = Rating.ransack(params[:q])
     @ratings = @q.result(distinct: true).includes(:game, :user,
-                                                  :video_games).page(params[:page]).per(10)
+                                                  :platform).page(params[:page]).per(10)
   end
 
-  def show
-    @video_game = VideoGame.new
-  end
+  def show; end
 
   def new
     @rating = Rating.new
@@ -57,6 +55,7 @@ class RatingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:game_id, :user_id, :rating, :review)
+    params.require(:rating).permit(:game_id, :user_id, :rating, :review,
+                                   :platform_id)
   end
 end

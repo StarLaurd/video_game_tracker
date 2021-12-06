@@ -3,10 +3,10 @@ class CreateVideoGames < ActiveRecord::Migration[6.0]
     create_table :video_games do |t|
       t.string :name
       t.date :release_date
-      t.integer :rating_id
       t.string :image
       t.integer :publisher_id
       t.integer :developer_id
+      t.integer :platform_id
 
       t.timestamps
     end
