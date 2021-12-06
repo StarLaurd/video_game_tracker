@@ -8,5 +8,10 @@
 
   <%= f.hidden_field :game_id, value: @video_game.id %>
 
+  <div class="form-group">
+    <%= f.label :note %>
+    <%= f.text_area :note, rows: "3", class: "form-control" %>
+  </div>
+
   <%= f.submit "Create note", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

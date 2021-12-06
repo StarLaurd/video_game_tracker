@@ -2,6 +2,11 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :note_cont, "Note contains" %>
+    <%= f.text_field :note_cont, :class => "form-control", :placeholder => "Note contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :created_at, "Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>

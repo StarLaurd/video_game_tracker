@@ -1,5 +1,5 @@
 ActiveAdmin.register Note do
-  permit_params :user_id, :game_id
+  permit_params :user_id, :game_id, :note
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

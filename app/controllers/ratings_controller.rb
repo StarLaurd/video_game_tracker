@@ -55,7 +55,6 @@ class RatingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:game_id, :user_id, :rating, :review,
-                                   :platform_id)
+    params.require(:rating).permit(:game_id, :user_id, :rating, :review)
   end
 end

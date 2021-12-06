@@ -4,6 +4,7 @@ class NoteResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :user_id, :integer
   attribute :game_id, :integer
+  attribute :note, :string
 
   # Direct associations
 

@@ -6,7 +6,6 @@ class RatingResource < ApplicationResource
   attribute :user_id, :integer
   attribute :rating, :integer
   attribute :review, :string
-  attribute :platform_id, :integer
 
   # Direct associations
 
