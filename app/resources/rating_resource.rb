@@ -6,10 +6,11 @@ class RatingResource < ApplicationResource
   attribute :user_id, :integer
   attribute :rating, :integer
   attribute :review, :string
+  attribute :platform_id, :integer
 
   # Direct associations
 
-  has_many   :video_games
+  belongs_to :platform
 
   belongs_to :user
 
