@@ -31,7 +31,11 @@
       </dd>
 
       <dt>Platform</dt>
-      <dd><%= video_game.platform_id %></dd>
+      <dd>
+        <% if @video_game.platform.present? %>
+          <%= link_to video_game.platform, video_game.platform %>
+        <% end %>
+      </dd>
 
     </dl>
 

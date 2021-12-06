@@ -26,11 +26,7 @@
       <dd><%= rating.review %></dd>
 
       <dt>Platform</dt>
-      <dd>
-        <% if @rating.platform.present? %>
-          <%= link_to rating.platform, rating.platform %>
-        <% end %>
-      </dd>
+      <dd><%= rating.platform_id %></dd>
 
     </dl>
 

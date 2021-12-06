@@ -6,7 +6,7 @@ class PlatformResource < ApplicationResource
 
   # Direct associations
 
-  has_many :ratings
+  has_many :video_games
 
   # Indirect associations
 end

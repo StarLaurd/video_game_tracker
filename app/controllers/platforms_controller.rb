@@ -3,11 +3,11 @@ class PlatformsController < ApplicationController
 
   def index
     @q = Platform.ransack(params[:q])
-    @platforms = @q.result(distinct: true).includes(:ratings).page(params[:page]).per(10)
+    @platforms = @q.result(distinct: true).includes(:video_games).page(params[:page]).per(10)
   end
 
   def show
-    @rating = Rating.new
+    @video_game = VideoGame.new
   end
 
   def new
