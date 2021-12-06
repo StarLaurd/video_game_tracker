@@ -14,7 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <%= f.select :name, options_for_select(Platform.names.keys), {}, class: "form-control" %>
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
     <% if name_was_invalid %>
       <% platform.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
