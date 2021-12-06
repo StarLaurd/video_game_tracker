@@ -2,6 +2,8 @@ require "rails_helper"
 
 RSpec.describe VideoGame, type: :model do
   describe "Direct Associations" do
+    it { should belong_to(:platform) }
+
     it { should belong_to(:developer) }
 
     it { should belong_to(:publisher) }

@@ -22,7 +22,7 @@
   <div class="form-group">
     <%= f.label :platform_id %>
 
-    <%= f.collection_select :platform_id, Platform.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.text_field :platform_id, class: "form-control" %>
   </div>
 
   <%= f.submit "Create rating", class: "btn btn-block btn-outline-secondary" %>

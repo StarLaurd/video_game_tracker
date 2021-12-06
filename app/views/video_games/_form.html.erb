@@ -124,7 +124,7 @@
     <% end %>
 
     <%= f.label :platform_id %>
-    <%= f.number_field :platform_id, class: platform_class, placeholder: "Enter platform" %>
+    <%= f.collection_select :platform_id, Platform.all, :id, :to_s, {}, class: "form-control" %>
     <% if platform_was_invalid %>
       <% video_game.errors.full_messages_for(:platform).each do |message| %>
         <div class="invalid-feedback d-flex">

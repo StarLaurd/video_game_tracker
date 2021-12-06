@@ -1,7 +1,7 @@
 class Platform < ApplicationRecord
   # Direct associations
 
-  has_many   :ratings,
+  has_many   :video_games,
              dependent: :destroy
 
   # Indirect associations

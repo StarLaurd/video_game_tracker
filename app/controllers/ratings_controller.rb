@@ -3,8 +3,8 @@ class RatingsController < ApplicationController
 
   def index
     @q = Rating.ransack(params[:q])
-    @ratings = @q.result(distinct: true).includes(:game, :user,
-                                                  :platform).page(params[:page]).per(10)
+    @ratings = @q.result(distinct: true).includes(:game,
+                                                  :user).page(params[:page]).per(10)
   end
 
   def show; end

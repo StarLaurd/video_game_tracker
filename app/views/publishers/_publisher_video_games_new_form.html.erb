@@ -29,7 +29,7 @@
   <div class="form-group">
     <%= f.label :platform_id %>
 
-    <%= f.text_field :platform_id, class: "form-control" %>
+    <%= f.collection_select :platform_id, Platform.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
   <%= f.submit "Create video game", class: "btn btn-block btn-outline-secondary" %>

@@ -24,13 +24,13 @@
     <%= f.collection_select :publisher_id, Publisher.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
-  <%= f.hidden_field :developer_id, value: @developer.id %>
-
   <div class="form-group">
-    <%= f.label :platform_id %>
+    <%= f.label :developer_id %>
 
-    <%= f.collection_select :platform_id, Platform.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :developer_id, Developer.all, :id, :to_s, {}, class: "form-control" %>
   </div>
+
+  <%= f.hidden_field :platform_id, value: @platform.id %>
 
   <%= f.submit "Create video game", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
