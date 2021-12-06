@@ -5,7 +5,6 @@ class CreateRatings < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.integer :rating
       t.text :review
-      t.integer :platform_id
 
       t.timestamps
     end
